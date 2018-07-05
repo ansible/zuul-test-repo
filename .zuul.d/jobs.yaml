@@ -1,0 +1,73 @@
+#####################################################################
+# Projects
+#
+
+- project:
+    check:
+      jobs:
+        - noop
+        # Tests will be enabled in follow up PR
+        #- ansible-test-network-integration-vyos-devel-py2
+        #- ansible-test-network-integration-vyos-devel-py3
+    gate:
+      jobs:
+        - noop
+
+
+#####################################################################
+# ansible-test-network-integration
+#
+# Integration tests for Networking
+#
+
+- job:
+    name: ansible-test-network-integration
+    description: |
+       Parent job for ``ansible-test network-integration`` tests.
+
+       Responds to these variables:
+
+       .. zuul:jobvar:: python_version
+
+          Instruct ansible-test to test against this version of Python.
+
+          Example ``2.6``, ``2.7``, ``3.5``, ``3.6``
+
+       .. zuul:jobvar:: platform
+
+          Network platform to test against, such as ``eos``, ``ios``, ``vyos``
+    run: .zuul.d/playbooks/ansible-test-network-integration/run.yaml
+    timeout: 3000
+
+- job:
+    name: ansible-test-network-integration-vyos-devel-py2
+    description: ansible-test network-integration on Python 2
+    parent: ansible-test-network-integration
+    files:
+      - ^zuul.d/.*$
+      - ^lib/ansible/modules/network/vyos/.*$
+      - ^lib/ansible/module_utils/network/vyos/.*$
+    vars:
+      platform: vyos
+      python_version: 2.7
+    nodeset:
+      nodes:
+        - name: test-node
+          label: ansible-network-vyos-1.1.8
+
+- job:
+    name: ansible-test-network-integration-vyos-devel-py3
+    description: ansible-test network-integration on Python 3
+    parent: ansible-test-network-integration
+    files:
+      - ^zuul.d/.*$
+      - ^lib/ansible/modules/network/vyos/.*$
+      - ^lib/ansible/module_utils/network/vyos/.*$
+    vars:
+      platform: vyos
+      python_version: 3.6
+    nodeset:
+      nodes:
+        - name: test-node
+          label: ansible-network-vyos-1.1.8
+
