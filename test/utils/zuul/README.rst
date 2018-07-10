@@ -35,6 +35,6 @@ ansible/ansible
 To allow what and how we test to be updated over time, while still allowing tests to run against older we are storing as much of the Zuul configuration in the Ansible repo as possible.
 
 * ``.zuul.d/jobs.yaml`` - Lists the ``jobs`` that should be run
-* ``.zuul/playbooks/``- Maps hosts (``nodeset``) to roles
-* ``.zuul/roles/`` - Details how to run the tests
+* ``test/utils/zuul/playbooks/``- Maps hosts (``nodeset``) to roles
+* ``roles/`` - Details how to run the tests (FIXME will move to ``test/utils/zuul/`` in the future
 

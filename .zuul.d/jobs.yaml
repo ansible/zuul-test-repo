@@ -34,7 +34,7 @@
        .. zuul:jobvar:: platform
 
           Network platform to test against, such as ``eos``, ``ios``, ``vyos``
-    run: .zuul.d/playbooks/ansible-test-network-integration/run.yaml
+    run: test/utils/zuul/playbooks/ansible-test-network-integration/run.yaml
     timeout: 3000
 
 - job:
