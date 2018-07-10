@@ -1,0 +1,8 @@
+---
+- project:
+    check:
+      jobs:
+        - linters
+    gate:
+      jobs:
+        - linters
