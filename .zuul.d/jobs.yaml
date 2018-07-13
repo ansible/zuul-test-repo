@@ -6,8 +6,7 @@
     #third-party-check:
     check:
       jobs:
-        - noop
-        #- ansible-test-network-integration-vyos-devel-py2
+        - ansible-test-network-integration-vyos-devel-py2
         #- ansible-test-network-integration-vyos-devel-py3
       debug: true
     gate:
@@ -44,10 +43,10 @@
     name: ansible-test-network-integration-vyos-devel-py2
     description: ansible-test network-integration on Python 2
     parent: ansible-test-network-integration
-    files:
-      - ^zuul.d/.*$
-      - ^lib/ansible/modules/network/vyos/.*$
-      - ^lib/ansible/module_utils/network/vyos/.*$
+  #    files:
+  #    - ^zuul.d/.*$
+  #    - ^lib/ansible/modules/network/vyos/.*$
+  #    - ^lib/ansible/module_utils/network/vyos/.*$
     vars:
       platform: vyos
       python_version: 2.7

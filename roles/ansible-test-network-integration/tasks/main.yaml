@@ -38,7 +38,8 @@
 
 - name: Build test options
   set_fact:
-    standard_options: '--color no --tox --continue-on-error --changes'
+    # FIXME Correctly set basebranch
+    standard_options: '--color no --tox --continue-on-error'
     test_targets: "{{ platform}}_.*"
 
 - name: Run ansible-test network-integration
