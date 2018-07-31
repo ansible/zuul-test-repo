@@ -44,7 +44,8 @@
     description: ansible-test network-integration on Python 2
     parent: ansible-test-network-integration
     files:
-      - ^zuul.d/.*$
+      - ^.zuul.d/.*$
+      - ^roles/.*$
       - ^lib/ansible/modules/network/vyos/.*$
       - ^lib/ansible/module_utils/network/vyos/.*$
     vars:
