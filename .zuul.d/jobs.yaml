@@ -45,7 +45,7 @@
     parent: ansible-test-network-integration
     files:
       - ^.zuul.d/.*$
-      - ^roles/.*$
+      - ^test/utils/zuul/.*$
       - ^lib/ansible/modules/network/vyos/.*$
       - ^lib/ansible/module_utils/network/vyos/.*$
     vars:
@@ -62,7 +62,7 @@
     parent: ansible-test-network-integration
     files:
       - ^.zuul.d/.*$
-      - ^roles/.*$
+      - ^test/utils/zuul/.*$
       - ^lib/ansible/modules/network/vyos/.*$
       - ^lib/ansible/module_utils/network/vyos/.*$
     vars:
