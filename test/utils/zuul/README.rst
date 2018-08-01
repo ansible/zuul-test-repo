@@ -36,5 +36,5 @@ To allow what and how we test to be updated over time, while still allowing test
 
 * ``.zuul.d/jobs.yaml`` - Lists the ``jobs`` that should be run
 * ``test/utils/zuul/playbooks/``- Maps hosts (``nodeset``) to roles
-* ``roles/`` - Details how to run the tests (FIXME will move to ``test/utils/zuul/`` in the future
+* ``test/utils/zuul/playbooks/*/roles`` - The actual tests
 
