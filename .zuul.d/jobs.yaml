@@ -6,8 +6,8 @@
     #third-party-check:
     check:
       jobs:
-        - ansible-test-network-integration-vyos-devel-py2
-        #- ansible-test-network-integration-vyos-devel-py3
+        - ansible-test-network-integration-vyos-py2
+        #- ansible-test-network-integration-vyos-py3
       debug: true
     gate:
       jobs:
@@ -40,8 +40,8 @@
     timeout: 3000
 
 - job:
-    name: ansible-test-network-integration-vyos-devel-py2
-    description: ansible-test network-integration on Python 2
+    name: ansible-test-network-integration-vyos
+    description: ansible-test network-integration
     parent: ansible-test-network-integration
     files:
       - ^.zuul.d/.*$
@@ -50,26 +50,28 @@
       - ^lib/ansible/module_utils/network/vyos/.*$
     vars:
       platform: vyos
-      python_version: 2.7
     nodeset:
       nodes:
         - name: test-node
           label: ansible-network-vyos-1.1.8
 
+
+#####################################################################
+# Specific (directly runnable) jobs from this point down
+#
+#
+
 - job:
-    name: ansible-test-network-integration-vyos-devel-py3
-    description: ansible-test network-integration on Python 3
-    parent: ansible-test-network-integration
-    files:
-      - ^.zuul.d/.*$
-      - ^test/utils/zuul/.*$
-      - ^lib/ansible/modules/network/vyos/.*$
-      - ^lib/ansible/module_utils/network/vyos/.*$
+    name: ansible-test-network-integration-vyos-py2
+    description: ansible-test network-integration on Python 2
+    parent: ansible-test-network-integration-vyos
     vars:
-      platform: vyos
+      python_version: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-py3
+    description: ansible-test network-integration on Python 3
+    parent: ansible-test-network-integration-vyos
+    vars:
       python_version: 3.6
-    nodeset:
-      nodes:
-        - name: test-node
-          label: ansible-network-vyos-1.1.8
 
