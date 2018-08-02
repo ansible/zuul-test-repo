@@ -3,11 +3,10 @@
 #
 
 - project:
-    #third-party-check:
-    check:
+    third-party-check:
       jobs:
         - ansible-test-network-integration-vyos-py2
-        #- ansible-test-network-integration-vyos-py3
+        - ansible-test-network-integration-vyos-py3
       debug: true
     gate:
       jobs:
