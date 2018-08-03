@@ -47,6 +47,9 @@
       - ^test/utils/zuul/.*$
       - ^lib/ansible/modules/network/vyos/.*$
       - ^lib/ansible/module_utils/network/vyos/.*$
+      - ^lib/ansible/plugins/action/vyos.*$
+      - ^lib/ansible/plugins/cliconf/vyos.*$
+      - ^lib/ansible/plugins/terminal/vyos.*$
     vars:
       platform: vyos
     nodeset:
