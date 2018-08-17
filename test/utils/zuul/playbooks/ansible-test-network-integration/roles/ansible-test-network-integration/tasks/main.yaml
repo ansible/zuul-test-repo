@@ -39,7 +39,7 @@
 - name: Build test options
   set_fact:
     # FIXME Correctly set basebranch
-    standard_options: '--color no --tox --continue-on-error -ve'
+    standard_options: '--color no --tox --continue-on-error -v'
 
 - name: Run ansible-test network-integration
   command: "{{ ansible_path }}/test/runner/ansible-test network-integration --inventory /var/lib/network-image-builder/output/{{ platform }}/inventory {{ standard_options }} --python {{ python_version }} {{ test_targets }}"
