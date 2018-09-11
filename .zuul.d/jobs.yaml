@@ -96,6 +96,8 @@
 #
 #
 
+# vyos
+
 - job:
     name: ansible-test-network-integration-vyos1-py2
     description: ansible-test network-integration on Python 2
@@ -112,9 +114,25 @@
       python_version: 3.6
       test_targets: zuul/vyos/group1/
 
+# junos
+
+- job:
+    name: ansible-test-network-integration-junos1-py2
+    description: ansible-test network-integration on Python 2
+    parent: ansible-test-network-integration-junos
+    vars:
+      python_version: 2.7
+      test_targets: zuul/junos/group1/
+
+- job:
+    name: ansible-test-network-integration-junos1-py3
+    description: ansible-test network-integration on Python 3
+    parent: ansible-test-network-integration-junos
+    vars:
+      python_version: 3.6
+      test_targets: zuul/junos/group1/
 
 # ansible-test-network-integration-nxos1-py2
 # ansible-test-network-integration-nxos2-py2
 # ansible-test-network-integration-nxos3-py2
 # ansible-test-network-integration-nxos4-py2
-
