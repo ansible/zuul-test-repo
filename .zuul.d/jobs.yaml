@@ -5,8 +5,10 @@
 - project:
     third-party-check:
       jobs:
-        - ansible-test-network-integration-vyos1-py2
-        - ansible-test-network-integration-vyos1-py3
+        #- ansible-test-network-integration-vyos1-py2
+        #- ansible-test-network-integration-vyos1-py3
+        #- ansible-test-network-integration-junos1-py2
+        - ansible-test-network-integration-junos1-py3
       debug: true
     gate:
       jobs:
@@ -67,6 +69,27 @@
         - name: test-node
           label: ansible-network-vyos-1.1.8
 
+
+- job:
+    name: ansible-test-network-integration-junos
+    description: ansible-test network-integration
+    parent: ansible-test-network-integration
+    files:
+      - ^.zuul.d/.*$
+      - ^test/utils/zuul/.*$
+      - ^lib/ansible/modules/network/junos/.*$
+      - ^lib/ansible/module_utils/network/junos/.*$
+      - ^lib/ansible/plugins/action/junos.*$
+      - ^lib/ansible/plugins/cliconf/junos.*$
+      - ^lib/ansible/plugins/terminal/junos.*$
+    vars:
+      platform: junos
+    nodeset:
+      nodes:
+        - name: controller
+          label: dib-fedora-27
+        - name: appliance
+          label: ansible-network-vqfx
 
 #####################################################################
 # Specific (directly runnable) jobs from this point down
