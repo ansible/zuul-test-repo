@@ -1,8 +1,17 @@
 Zuul configuration
 ==================
 
+.. contents:: Topics
+
 This directory contains the configuration for testing Ansible Network via Software Factory's Zuul instance.
 
+
+Dashboard
+=========
+
+* `Zuul Status <https://ansible.softwarefactory-project.io/zuul/status.html>`_
+* `List of Zuul jobs <https://ansible.softwarefactory-project.io/zuul/jobs.html>`_
+* `Historical list of Zuul Jobs <https://ansible.softwarefactory-project.io/zuul/builds.html>`_
 
 Configuration
 =============
@@ -21,8 +30,12 @@ FIXME, will be into https://softwarefactory-project.io/cgit/config/tree/zuul/ans
 
 Defines the repos that ``softwarefactory-project-zuul`` should read configuration from.
 
+The active GitHub repos can be see on the `Zuul Projects <https://ansible.softwarefactory-project.io/zuul/projects.html>`_ page.
+
 ansible/zuul-config
 ^^^^^^^^^^^^^^^^^^^
+
+* `List of GitHub repos that Zuul will use <https://github.com/ansible/zuul-config/blob/master/resources/ansible.yaml>`_
 
 Trusted configuration project
 
