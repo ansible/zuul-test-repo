@@ -5,7 +5,6 @@ Zuul configuration
 
 This directory contains the configuration for testing Ansible Network via Software Factory's Zuul instance.
 
-
 Dashboard
 =========
 
